@@ -529,86 +529,29 @@ font-size: 15px;
 }
 .profile-card {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.profile-info {
-  flex: 1;
-  margin-right: 20px;
-}
-
-.custom-message-area {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.custom-message-area textarea {
-  width: 100%;
-  min-height: 100px;
-  margin-bottom: 10px;
-}
-
-.profile-card {
-  display: flex;
-  flex-direction: row; /* Default layout */
-  flex-wrap: wrap; /* Allow wrapping */
+  flex-direction: column; /* Stack profile info and button rows */
   padding: 20px; /* Default padding */
 }
 
 .profile-info {
   flex: 1; /* Allow profile info to take available space */
-  margin-right: 20px; /* Space between profile info and buttons */
+  margin-bottom: 20px; /* Space below profile info */
 }
 
 /* Button Row Styles */
 .button-row {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px; /* Default gap */
-  flex-wrap: wrap; /* Allow buttons to wrap to the next line if needed */
-}
-
-.profile-card {
-  display: flex;
-  flex-direction: row; /* Default layout */
-  flex-wrap: wrap; /* Allow wrapping */
-  padding: 20px; /* Default padding */
-}
-
-.profile-info {
-  flex: 1; /* Allow profile info to take available space */
-  margin-right: 20px; /* Space between profile info and buttons */
-}
-
-/* Button Row Styles */
-.button-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px; /* Default gap */
-  flex-wrap: wrap; /* Allow buttons to wrap to the next line if needed */
+  justify-content: space-between; /* Space out buttons */
+  align-items: center; /* Center buttons vertically */
+  gap: 10px; /* Default gap */
 }
 
 /* Media Query for Tablets and Small Devices */
 @media (max-width: 768px) {
-  .profile-card {
-    flex-direction: column; /* Stack profile info and button rows */
-  }
-
-  .profile-info {
-    margin-right: 0; /* Remove right margin */
-    margin-bottom: 20px; /* Space below profile info */
-  }
-
   .button-row {
     flex-direction: row; /* Ensure buttons are in a row */
     justify-content: space-between; /* Space out buttons */
     align-items: stretch; /* Stretch buttons to full height */
-    gap: 10px; /* Reduce gap for smaller screens */
   }
 }
 
