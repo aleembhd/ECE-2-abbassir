@@ -617,7 +617,7 @@ font-size: 15px;
 
 @media screen and (max-width: 400px) {
   .button-row {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .button-row button {
