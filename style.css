@@ -551,76 +551,105 @@ font-size: 15px;
   margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
-  .profile-card {
-    flex-direction: column;
-  }
-
-  .profile-info {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
+.profile-card {
+  display: flex;
+  flex-direction: row; /* Default layout */
+  flex-wrap: wrap; /* Allow wrapping */
+  padding: 20px; /* Default padding */
 }
+
+.profile-info {
+  flex: 1; /* Allow profile info to take available space */
+  margin-right: 20px; /* Space between profile info and buttons */
+}
+
+/* Button Row Styles */
 .button-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-  /* flex-wrap: wrap; Allows buttons to wrap to the next line if needed */
+  gap: 15px; /* Default gap */
+  flex-wrap: wrap; /* Allow buttons to wrap to the next line if needed */
 }
 
-/* Media Query for Tablets */
+.profile-card {
+  display: flex;
+  flex-direction: row; /* Default layout */
+  flex-wrap: wrap; /* Allow wrapping */
+  padding: 20px; /* Default padding */
+}
+
+.profile-info {
+  flex: 1; /* Allow profile info to take available space */
+  margin-right: 20px; /* Space between profile info and buttons */
+}
+
+/* Button Row Styles */
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Default gap */
+  flex-wrap: wrap; /* Allow buttons to wrap to the next line if needed */
+}
+
+/* Media Query for Tablets and Small Devices */
 @media (max-width: 768px) {
+  .profile-card {
+    flex-direction: column; /* Stack profile info and button rows */
+  }
+
+  .profile-info {
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 20px; /* Space below profile info */
+  }
+
   .button-row {
-    flex-direction: row; /* Stack buttons vertically */
-      align-items: stretch;
-      gap: 10px; /* Reduce gap for smaller screens */
+    flex-direction: row; /* Ensure buttons are in a row */
+    justify-content: space-between; /* Space out buttons */
+    align-items: stretch; /* Stretch buttons to full height */
+    gap: 10px; /* Reduce gap for smaller screens */
   }
 }
 
 /* Media Query for Mobile Devices */
 @media (max-width: 480px) {
   .button-row {
-      flex-direction: row; /* Stack buttons vertically */
-      align-items: stretch; /* Stretch buttons to full width */
-      gap: 10px; /* Maintain a smaller gap */
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .profile-card {
-    padding: 15px;
-  }
-
-  .action-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .button-row {
-    display: flex;
-    gap: 10px;
+    flex-direction: row; /* Ensure buttons are in a row */
+    align-items: stretch; /* Stretch buttons to full width */
+    gap: 10px; /* Maintain a smaller gap */
   }
 
   .button-row button {
-    flex: 1;
-    white-space: nowrap;
-    padding: 10px 5px;
-    font-size: 14px;
-  }
-
-  .profile-info {
-    margin-bottom: 15px;
+    flex: 1; /* Allow buttons to take equal width */
+    min-width: 120px; /* Set a minimum width for buttons */
   }
 }
 
+/* Additional Media Query for Very Small Screens */
 @media screen and (max-width: 400px) {
   .button-row {
-    flex-direction: row;
+    flex-direction: row; /* Ensure buttons remain in a row */
   }
 
   .button-row button {
-    width: 100%;
+    width: 100%; /* Full width for buttons */
+    padding: 10px; /* Adjust padding */
+    font-size: 14px; /* Font size for smaller screens */
+  }
+}
+
+/* Styles for Desktop */
+@media (min-width: 769px) {
+  .button-row {
+    flex-direction: row; /* Ensure buttons are in a row */
+    justify-content: flex-start; /* Align buttons to the start */
+    gap: 20px; /* Increased gap for larger screens */
+  }
+
+  .button-row button {
+    padding: 10px 15px; /* Padding for desktop buttons */
+    font-size: 16px; /* Larger font size for desktop */
+    min-width: 150px; /* Minimum width for buttons on desktop */
   }
 }
