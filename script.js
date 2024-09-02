@@ -21,7 +21,7 @@ const students = [
   { rollNumber: '22WJ1A0483', name: 'G UDAY KIRAN', parentPhone: '9989357805', parentName: 'G ASHOK KUMAR', studentPhone: '9640327805' },
   { rollNumber: '22WJ1A0484', name: 'GADDAM NARESH', parentPhone: '9618249816', parentName: 'GADDAM VENKATESHWARLU', studentPhone: '7981433822' },
   { rollNumber: '22WJ1A0485', name: 'GADE SHIVAJI', parentPhone: '9533472796', parentName: 'GADE NARSINGA RAO', studentPhone: '6301247924' },
-  { rollNumber: '22WJ1A0486', name: 'GAJBEERKAR SRAVAN KUMAR', parentPhone: '6309635024', parentName: 'GAJBEERKAR HUSSAIN', studentPhone: '7993556024' },
+  { rollNumber: '22WJ1A0486', name: 'GAJBEERKAR SRAVAN KUMAR', parentPhone: '7658919241', parentName: 'GAJBEERKAR HUSSAIN', studentPhone: '7993556024' },
   { rollNumber: '22WJ1A0487', name: 'GAJJALA VENKATESH', parentPhone: '9908994896', parentName: 'GAJJALA HARIBABU', studentPhone: '9676248621' },
   { rollNumber: '22WJ1A0488', name: 'GAMINI NAGAKRISHNA BHANU PRAKASH RAO', parentPhone: '9441341984', parentName: 'GAMINI VENKATRATHNAM', studentPhone: '9121008262' },
   { rollNumber: '22WJ1A0489', name: 'GANAPURAM SRAVANTHI', parentPhone: '9849207405', parentName: 'GANAPURAM KRISHNAIAH', studentPhone: '9182244302' },
@@ -74,25 +74,26 @@ const students = [
 
 let messageLogs = [];
 
-// Simulated server-side database
+const sectionNamespace = 'section2'; // Change this for each section, e.g., 'section2'
+
 const localStorageDatabase = {
   saveMessage: function (log) {
-    let messages = JSON.parse(localStorage.getItem('messageLogs')) || [];
+    let messages = JSON.parse(localStorage.getItem(`${sectionNamespace}_messageLogs`)) || [];
     messages.push(log);
     this.cleanupOldMessages(messages);
-    localStorage.setItem('messageLogs', JSON.stringify(messages));
+    localStorage.setItem(`${sectionNamespace}_messageLogs`, JSON.stringify(messages));
   },
   getAllMessages: function () {
-    return JSON.parse(localStorage.getItem('messageLogs')) || [];
+    return JSON.parse(localStorage.getItem(`${sectionNamespace}_messageLogs`)) || [];
   },
   cleanupOldMessages: function (messages) {
     const oneMonthAgo = new Date();
     oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
     const filteredMessages = messages.filter(log => new Date(log.timestamp) > oneMonthAgo);
-    localStorage.setItem('messageLogs', JSON.stringify(filteredMessages));
+    localStorage.setItem(`${sectionNamespace}_messageLogs`, JSON.stringify(filteredMessages));
   },
   clearAllLogs: function () {
-    localStorage.removeItem('messageLogs');
+    localStorage.removeItem(`${sectionNamespace}_messageLogs`);
   }
 };
 
@@ -495,7 +496,7 @@ function callParent() {
         
         // Log the call
         const log = {
-          sender: 'Dr. S M K M Abbas Ahmad',
+          sender: 'NVS Murthy',
           recipient: parentPhone,
           studentName: studentName,
           studentRoll: studentRoll,
@@ -545,7 +546,7 @@ function whatsappStudent() {
     
     // Log the WhatsApp message
     const log = {
-      sender: 'Dr. S M K M Abbas Ahmad',
+      sender: 'NVS Murthy',
       recipient: studentPhone,
       studentName: studentName,
       studentRoll: studentRoll,
@@ -575,7 +576,7 @@ function sendCustomWhatsAppMessage() {
     
     // Log the custom WhatsApp message
     const log = {
-      sender: 'Dr. S M K M Abbas Ahmad',
+      sender: 'NVS Murthy',
       recipient: parentPhone,
       studentName: studentName,
       studentRoll: studentRoll,
@@ -681,7 +682,7 @@ function sendBulkMessage(half) {
   phonesForHalf.forEach(phone => {
     const student = students.find(s => s.parentPhone === phone);
     const log = {
-      sender: 'Dr. S M K M Abbas Ahmad',
+      sender: 'NVS Murthy',
       recipient: phone,
       studentName: student.name,
       studentRoll: student.rollNumber,
@@ -735,7 +736,7 @@ function sendBulkMessage(group) {
   parentPhones.forEach(phone => {
     const student = students.find(s => s.parentPhone === phone);
     const log = {
-      sender: 'Dr. S M K M Abbas Ahmad',
+      sender: 'NVS Murthy',
       recipient: phone,
       studentName: student ? student.name : 'N/A',
       studentRoll: student ? student.rollNumber : 'N/A',
